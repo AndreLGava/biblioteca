@@ -1,0 +1,5 @@
+$('.livro').show();
+$('.formulario').remove();
+$('.livro<%= @livro.id %>').hide();
+$('.edita<%= @livro.id %>').after('<%= j render 'livros/form' %>');
+$('.edita<%= @livro.id %>').show();

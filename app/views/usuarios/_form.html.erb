@@ -1,0 +1,39 @@
+<div class="formulario">
+<%= form_for(@usuario, remote: true) do |f| %>
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+      <% @usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label t('usuarios.nome') %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label t('usuarios.email') %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label t('usuarios.password') %><br />
+    <%= f.text_field :senha %>
+  </div>
+  <div class="field">
+    <%= f.label t('usuarios.bio') %><br />
+    <%= f.text_field :bio %>
+  </div>
+  <div class="field">
+    <%= f.label t('usuarios.admin') %><br />
+    <%= f.check_box :admin %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

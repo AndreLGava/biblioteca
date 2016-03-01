@@ -1,0 +1,5 @@
+$('.usuario').show();
+$('.formulario').remove();
+$('.usuario<%= @usuario.id %>').hide();
+$('.edita<%= @usuario.id %>').after('<%= j render 'usuarios/form' %>');
+$('.edita<%= @usuario.id %>').show();

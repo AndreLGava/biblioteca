@@ -1,0 +1,21 @@
+<div class="anima">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t('livros.titulo') %></b><br/>
+  <%= @livro.titulo %>
+</p>
+
+<p>
+  <b><%= t('livros.descricao') %></b><br/>
+  <%= @livro.descricao %>
+</p>
+<p>
+<br/>
+ <%= image_tag(@livro.image.url(:medium), class: "brightness") %>
+</p>
+<br/>
+
+<%= link_to t('links.edit'), edit_livro_path(@livro) %> |
+<%= link_to t('links.back'), livros_path %>
+</div>

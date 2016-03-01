@@ -1,0 +1,40 @@
+<h1><%= t('emprestimos.notification') %></h1>
+
+<div class="alert alert-success" role="alert">E-mail(s) enviado(s) com sucesso 
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+<div class="emprestimos_novos ">
+  <table class="tabela_emprestimos table table-responsive table-striped">
+  <tr>
+          <th><%= t('livros.titulo') %></th>
+          <th><%= t('usuarios.nome') %></th>
+          <th><%= t('emprestimos.data_emprestimo') %></th>
+          <th><%= t('emprestimos.data_limite') %></th>
+          <th><%= t('emprestimos.data_devolucao') %></th>
+          
+  </tr>
+
+<% @emprestimos_atrasados.each do |emprestimo| %>
+  <tr class="emprestimo<%= emprestimo.id %> emprestimo">
+   
+    <td><%= link_to emprestimo.nome, edit_emprestimo_usuario_path(id: emprestimo.id) , remote: true, class: "emprestimo_nome#{emprestimo.id}" %></td>
+     <td><%= link_to emprestimo.titulo, edit_emprestimo_titulo_path(id: emprestimo.id) , remote: true, class: "emprestimo_titulo#{emprestimo.id}" %></td>
+    <td><%= link_to emprestimo.data_emprestimo , edit_emprestimo_data_emprestimo_path(id: emprestimo.id) , remote: true, class: "emprestimo_data_emprestimo#{emprestimo.id}" %></td>
+    <td><%= link_to emprestimo.data_limite, edit_emprestimo_data_limite_path(id: emprestimo.id) , remote: true, class: "emprestimo_data_limite#{emprestimo.id}" %></td>
+    <td><%= emprestimo.data_devolucao %></td>
+
+  </tr>
+  
+<% end %>
+</table>
+
+</div>
+
+<div class="form">
+  
+</div>
+<br />
+
+

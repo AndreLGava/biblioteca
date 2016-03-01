@@ -1,0 +1,2 @@
+$('.tabela_livros').remove();
+$('.livros_novos').after('<%= j render partial:'livros/tabela', locals: { livros: @usuarios} %>');

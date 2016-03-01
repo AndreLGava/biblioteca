@@ -1,0 +1,183 @@
+<h1><%= t('emprestimos.emprestimos') %></h1>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><%= t('emprestimos.all')  %></a></li>
+    <li role="presentation"><a href="#emprestados" aria-controls="emprestados" role="tab" data-toggle="tab"><%= t('emprestimos.emprestados')  %></a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><%= t('emprestimos.atrasados')  %></a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><%= t('emprestimos.devolvidos') %></a></li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+            <div class="emprestimos_novos ">
+              <br>
+              <div class="btn-group pull-right" role="group">
+             
+                <%= link_to "", excel_gerais_path(:xlsx), target: "blank", class: "fa fa-file-excel-o fa-2x btn btn-success btn-outline" %>
+                <%= link_to "", gerais_path(:pdf), target: "blank", class: "fa fa-file-pdf-o fa-2x btn btn-danger btn-outline" %>
+            </div>
+            <br><br><br>
+        <table class="tabela_emprestimos table table-responsive table-striped">
+        <tr>
+          <th><%= t('livros.titulo') %></th>
+          <th><%= t('usuarios.nome') %></th>
+          <th><%= t('emprestimos.data_emprestimo') %></th>
+          <th><%= t('emprestimos.data_limite') %></th>
+          <th><%= t('emprestimos.data_devolucao') %></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+
+      <% @emprestimos.each do |emprestimo| %>
+        <tr class="emprestimo<%= emprestimo.id %> emprestimo">
+          <td><%= link_to emprestimo.livro.titulo, edit_emprestimo_titulo_path(id: emprestimo.id) , remote: true, class: "emprestimo_titulo#{emprestimo.id}" %></td>
+          <td><%= link_to emprestimo.usuario.nome, edit_emprestimo_usuario_path(id: emprestimo.id) , remote: true, class: "emprestimo_nome#{emprestimo.id}" %></td>
+          <td><%= link_to emprestimo.data_emprestimo , edit_emprestimo_data_emprestimo_path(id: emprestimo.id) , remote: true, class: "emprestimo_data_emprestimo#{emprestimo.id}" %></td>
+          <td><%= link_to emprestimo.data_limite, edit_emprestimo_data_limite_path(id: emprestimo.id) , remote: true, class: "emprestimo_data_limite#{emprestimo.id}" %></td>
+          <td><%= emprestimo.data_devolucao %></td>
+          <td><%= link_to t('links.show'), emprestimo %></td>
+          <td><%= link_to t('links.edit'), edit_emprestimo_path(emprestimo), remote: true  %></td>
+          <td><%= link_to t('links.destroy'), emprestimo, method: :delete, data: { confirm: t('action.message') }, remote: true  %></td>
+        </tr>
+        <tr class="edita<%= emprestimo.id %>">
+          
+          
+        </tr>
+      <% end %>
+      </table>
+
+      </div>
+
+      <div class="form">
+        
+      </div>
+      <br />
+      <%= link_to t('emprestimos.new_emprestimo'), new_emprestimo_path, remote: true %>
+
+    </div>
+     <div role="tabpanel" class="tab-pane" id="emprestados">
+      <div >
+         <br>
+              <div class="btn-group pull-right" role="group">
+                
+                <%= link_to "", excel_emprestados_path(:xlsx), target: "blank", class: "fa fa-file-excel-o fa-2x btn btn-success btn-outline" %>
+                <%= link_to "", emprestados_path(:pdf), target: "blank", class: "fa fa-file-pdf-o fa-2x btn btn-danger btn-outline" %>
+            </div>
+            <br><br><br>
+        <table class=" table table-responsive table-striped">
+        <tr>
+          <th><%= t('livros.titulo') %></th>
+          <th><%= t('usuarios.nome') %></th>
+          <th><%= t('emprestimos.data_emprestimo') %></th>
+          <th><%= t('emprestimos.data_limite') %></th>
+          <th><%= t('emprestimos.data_devolucao') %></th>
+          
+
+        </tr>
+
+      <% @emprestimos_emprestados.each do |emp| %>
+        <tr class="emprestimo<%= emp.id %> emprestimo">
+          <td><%= link_to emp.titulo, edit_emprestimo_titulo_path(id: emp.id) , remote: true, class: "emprestimo_titulo#{emp.id}" %></td>
+          <td><%= link_to emp.nome, edit_emprestimo_usuario_path(id: emp.id) , remote: true, class: "emprestimo_nome#{emp.id}" %></td>
+          <td><%= link_to emp.data_emprestimo , edit_emprestimo_data_emprestimo_path(id: emp.id) , remote: true, class: "emprestimo_data_emprestimo#{emp.id}" %></td>
+          <td><%= link_to emp.data_limite, edit_emprestimo_data_limite_path(id: emp.id) , remote: true, class: "emprestimo_data_limite#{emp.id}" %></td>
+          <td><%= emp.data_devolucao %></td>
+        </tr>
+        
+      <% end %>
+      </table>
+
+      </div>
+
+      <div class="form">
+        
+      </div>
+      <br />
+  </div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+      <div >
+         <br>
+              <div class="btn-group pull-right" role="group">
+              
+                <%= link_to "", excel_atrasados_path(:xlsx), target: "blank", class: "fa fa-file-excel-o fa-2x btn btn-success btn-outline" %>
+                <%= link_to "", atrasados_path(:pdf), target: "blank", class: "fa fa-file-pdf-o fa-2x btn btn-danger btn-outline" %>
+            </div>
+            <br><br><br>
+        <table class=" table table-responsive table-striped">
+        <tr>
+          <th><%= t('livros.titulo') %></th>
+          <th><%= t('usuarios.nome') %></th>
+          <th><%= t('emprestimos.data_emprestimo') %></th>
+          <th><%= t('emprestimos.data_limite') %></th>
+          <th><%= t('emprestimos.data_devolucao') %></th>
+
+        </tr>
+
+      <% @emprestimos_atrasados.each do |e| %>
+        <tr class="emprestimo<%= e.id %> emprestimo">
+          <td><%= link_to e.titulo, edit_emprestimo_titulo_path(id: e.id) , remote: true, class: "emprestimo_titulo#{e.id}" %></td>
+          <td><%= link_to e.nome, edit_emprestimo_usuario_path(id: e.id) , remote: true, class: "emprestimo_nome#{e.id}" %></td>
+          <td><%= link_to e.data_emprestimo , edit_emprestimo_data_emprestimo_path(id: e.id) , remote: true, class: "emprestimo_data_emprestimo#{e.id}" %></td>
+          <td><%= link_to e.data_limite, edit_emprestimo_data_limite_path(id: e.id) , remote: true, class: "emprestimo_data_limite#{e.id}" %></td>
+          <td><%= e.data_devolucao %></td>
+
+        </tr>
+       
+      <% end %>
+      </table>
+
+      </div>
+
+      <div class="form">
+        
+      </div>
+      <br />
+
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="messages">
+      <div >
+         <br>
+              <div class="btn-group pull-right" role="group">
+            
+                <%= link_to "", excel_devolvidos_path(:xlsx), target: "blank", class: "fa fa-file-excel-o fa-2x btn btn-success btn-outline" %>
+                <%= link_to "", devolvidos_path(:pdf), target: "blank", class: "fa fa-file-pdf-o fa-2x btn btn-danger btn-outline" %>
+            </div>
+            <br><br><br>
+        <table class=" table table-responsive table-striped">
+        <tr>
+          <th><%= t('livros.titulo') %></th>
+          <th><%= t('usuarios.nome') %></th>
+          <th><%= t('emprestimos.data_emprestimo') %></th>
+          <th><%= t('emprestimos.data_limite') %></th>
+          <th><%= t('emprestimos.data_devolucao') %></th>
+
+        </tr>
+
+      <% @emprestimos_devolvidos.each do |d| %>
+        <tr class="emprestimo<%= d.id %> emprestimo">
+          <td><%= link_to d.titulo, edit_emprestimo_titulo_path(id: d.id) , remote: true, class: "emprestimo_titulo#{d.id}" %></td>
+          <td><%= link_to d.nome, edit_emprestimo_usuario_path(id: d.id) , remote: true, class: "emprestimo_nome#{d.id}" %></td>
+          <td><%= link_to d.data_emprestimo , edit_emprestimo_data_emprestimo_path(id: d.id) , remote: true, class: "emprestimo_data_emprestimo#{d.id}" %></td>
+          <td><%= link_to d.data_limite, edit_emprestimo_data_limite_path(id: d.id) , remote: true, class: "emprestimo_data_limite#{d.id}" %></td>
+          <td><%= d.data_devolucao %></td>
+        </tr>
+       
+      <% end %>
+      </table>
+
+      </div>
+
+      <div class="form">
+        
+      </div>
+      <br />
+
+    </div>
+  </div>
+
+
+</div>

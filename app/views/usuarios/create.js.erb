@@ -1,0 +1,4 @@
+
+$('.tabela_usuarios').remove();
+$('.form').hide();
+$('.usuarios_novos').after('<%= j render partial:'usuarios/tabela', locals: { usuarios: @usuarios} %>');

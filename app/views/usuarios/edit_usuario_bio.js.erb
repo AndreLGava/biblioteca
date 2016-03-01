@@ -1,0 +1,2 @@
+$('.usuario_bio<%= @usuario.id %>').hide();
+$('.usuario_bio<%= @usuario.id %>').after('<%= j render 'usuarios/bio' %>');

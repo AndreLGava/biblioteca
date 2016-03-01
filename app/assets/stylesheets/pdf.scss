@@ -1,0 +1,10 @@
+.relatorio{
+    font-size: 12px;
+    text-align: left;
+    & table{
+        width: 100%;
+        & thead{
+            text-decoration: bold;
+        }
+    }
+}

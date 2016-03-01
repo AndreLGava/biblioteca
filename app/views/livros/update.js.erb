@@ -1,0 +1,3 @@
+$('.tabela_livros').remove();
+$('.form').hide();
+$('.livros_novos').after('<%= j render partial:'livros/tabela', locals: { livros: @livros} %>');

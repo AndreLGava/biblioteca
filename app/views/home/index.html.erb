@@ -1,0 +1,14 @@
+<h1 class="inicial fonting"><%= t 'inicio.mensagem' %></h1>
+
+<h1 class="inicial fonting"><i class="fa fa-5x fa-university"></i></h1>
+<br/>
+<div class="page-header">
+  <h1><small>Livros disponíveis para empréstimo</small></h1>
+</div>
+<div class="anima">
+<% @livros.each do |livro| %>
+ <div class="sessao">
+    <td><%= link_to image_tag(livro.image.url(:thumb)), livro %></td>
+</div>
+<% end %>
+</div>

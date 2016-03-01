@@ -1,0 +1,38 @@
+
+<h1><%= t('usuarios.usuarios') %></h1>
+<div class="usuarios_novos">
+<table class="tabela_usuarios table table-responsive table-striped"> 
+  <tr>
+    <th><%= t('usuarios.nome') %></th>
+    <th><%= t('usuarios.email') %></th>
+    <th><%= t('usuarios.bio') %></th>
+    <th><%= t('usuarios.admin') %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @usuarios.each do |usuario| %>
+  <tr class="usuario<%= usuario.id %> usuario">
+    <td><%= link_to usuario.nome, edit_usuario_nome_path(id: usuario.id) , remote: true, class: "usuario_nome#{usuario.id}" %></td>
+    <td><%= link_to usuario.email, edit_usuario_email_path(id: usuario.id) , remote: true, class: "usuario_email#{usuario.id}" %></td>
+    <td><%=  link_to usuario.bio, edit_usuario_bio_path(id: usuario.id) , remote: true, class: "usuario_bio#{usuario.id}" %></td>
+    <td><%=  usuario.admin %></td>
+    <td><%= link_to t('links.show'), usuario %></td>
+    <td><%= link_to t('links.edit'), edit_usuario_path(usuario), remote: true  %></td>
+    <td><%= link_to t('links.destroy'), usuario, method: :delete, data: { confirm: t('action.message') },  remote: true  %></td>
+  </tr>
+  <tr class="edita<%= usuario.id %>">
+
+    
+  </tr>
+<% end %>
+</table>
+</div>
+
+<div class="form">
+  
+</div>
+<br />
+
+<%= link_to t('usuarios.new_usuario'), new_usuario_path, remote: true %>

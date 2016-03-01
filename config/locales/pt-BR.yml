@@ -1,0 +1,46 @@
+pt-BR:
+  inicio:
+    mensagem: "Seja bem vindo ao sistema de biblioteca"
+  menu:
+    notifications: " Notificar atrasados"
+    books: " Livros"
+    users: " Usuários"
+    loans: " Empréstimos"
+    library: "Biblioteca"
+    documents: " Relatórios"
+  usuarios: 
+    usuarios: "Usuários"
+    nome: "Nome"
+    email: "E-mail"
+    bio: "Biografia"
+    admin: "Administrador"
+    new_usuario: "Novo Usuário"
+  relatorios:
+    atrasados: "Empréstimos atrasados"
+    gerais: "Empréstimos gerais"
+    devolvidos: "Empréstimos devolvidos"
+    emprestados: "Empréstimos Emprestados"
+  emprestimos:
+    emprestimos: "Empréstimos"
+    data_emprestimo: "Data Empréstimo"
+    data_limite: "Data de limite para entrega"
+    data_devolucao: "Data da devolução"
+    new_emprestimo: "Novo empréstimo"
+    all: "Todos Empréstimos"
+    atrasados: "Atrasados"
+    devolvidos: "Devolvidos"
+    emprestados: "Emprestados"
+    notification: "Usuários Notificados"
+  livros: 
+    livros: "Livros"
+    titulo: "Título"
+    descricao: "Descrição"
+    new_livro: "Novo Livro"
+    imagem: "Imagem"
+  links:
+    back: Voltar
+    destroy: Apagar
+    show: Mostrar
+    edit: Editar
+  action:
+    message: "Tem certeza que deseja executar esta ação?"

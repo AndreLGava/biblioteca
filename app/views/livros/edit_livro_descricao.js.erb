@@ -1,0 +1,2 @@
+$('.livro_descricao<%= @livro.id %>').hide();
+$('.livro_descricao<%= @livro.id %>').after('<%= j render 'livros/descricao' %>');

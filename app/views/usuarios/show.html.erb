@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t('usuarios.nome') %></b>
+  <%= @usuario.nome %>
+</p>
+
+<p>
+  <b><%= t('usuarios.email') %></b>
+  <%= @usuario.email %>
+</p>
+
+<p>
+  <b><%= t('usuarios.bio') %></b>
+  <%= @usuario.bio %>
+</p>
+
+<p>
+  <b><%= t('usuarios.admin') %></b>
+  <%= @usuario.admin %>
+</p>
+
+
+<%= link_to t('links.edit'), edit_usuario_path(@usuario) %> |
+<%= link_to t('links.back'), usuarios_path %>

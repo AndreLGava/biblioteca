@@ -1,0 +1,3 @@
+<%= form_for(@emprestimo, remote: true) do |f| %>
+  <%= f.date_select(:data_devolucao, order: [:day, :month, :year]) %> <br/> <%= f.submit %>
+<% end %>

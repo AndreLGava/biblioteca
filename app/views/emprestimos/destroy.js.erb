@@ -1,0 +1,2 @@
+$('.tabela_emprestimos').remove();
+$('.emprestimos_novos').after('<%= j render partial:'emprestimos/tabela', locals: { emprestimos: @emprestimos} %>');

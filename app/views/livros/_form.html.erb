@@ -1,0 +1,37 @@
+<div class="formulario">
+<%= form_for(@livro, remote: true) do |f| %>
+  <div id="errorbox"> 
+
+  </div>
+  <% if @livro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@livro.errors.count, "error") %> prohibited this livro from being saved:</h2>
+
+      <ul>
+      <% @livro.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label t('livros.titulo') %><br />
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label t('livros.descricao') %><br />
+    <%= f.text_area :descricao %>
+  </div>
+    <div class="field">
+    <%= f.hidden_field(:emprestado, :value => false) %>
+  </div>
+  <div class="field">
+  <%= f.label t('livros.imagem')%><br />
+  <%= f.file_field :image %>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

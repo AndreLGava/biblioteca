@@ -1,0 +1,3 @@
+$('.tabela_emprestimos').remove();
+$('.form').hide();
+$('.emprestimos_novos').after('<%= j render partial:'emprestimos/tabela', locals: { emprestimos: @emprestimos} %>');

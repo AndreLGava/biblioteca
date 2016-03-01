@@ -1,0 +1,5 @@
+<%= form_for(@emprestimo, remote: true) do |f| %>
+    <%= f.collection_select(:livro_id, Livro.where(emprestado: false).order(:titulo) +[@livro], :id, :titulo, include_blank: true) if @livro  %>     
+    <%= f.collection_select(:livro_id, Livro.where(emprestado: false).order(:titulo), :id, :titulo, include_blank: true) unless @livro  %>     
+    <br/> <%= f.submit %>
+<% end %>

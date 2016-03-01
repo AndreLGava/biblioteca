@@ -1,0 +1,29 @@
+  <table class="tabela_emprestimos table table-responsive table-striped">
+  <tr>
+          <th><%= t('livros.titulo') %></th>
+          <th><%= t('usuarios.nome') %></th>
+          <th><%= t('emprestimos.data_emprestimo') %></th>
+          <th><%= t('emprestimos.data_limite') %></th>
+          <th><%= t('emprestimos.data_devolucao') %></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+
+<% @emprestimos.each do |emprestimo| %>
+        <tr class="emprestimo<%= emprestimo.id %> emprestimo">
+          <td><%= link_to emprestimo.titulo, edit_emprestimo_titulo_path(id: emprestimo.id) , remote: true, class: "emprestimo_titulo#{emprestimo.id}" %></td>
+          <td><%= link_to emprestimo.nome, edit_emprestimo_usuario_path(id: emprestimo.id) , remote: true, class: "emprestimo_nome#{emprestimo.id}" %></td>
+          <td><%= link_to emprestimo.data_emprestimo , edit_emprestimo_data_emprestimo_path(id: emprestimo.id) , remote: true, class: "emprestimo_data_emprestimo#{emprestimo.id}" %></td>
+          <td><%= link_to emprestimo.data_limite, edit_emprestimo_data_limite_path(id: emprestimo.id) , remote: true, class: "emprestimo_data_limite#{emprestimo.id}" %></td>
+          <td><%= emprestimo.data_devolucao %></td>
+          <td><%= link_to t('links.show'), emprestimo %></td>
+          <td><%= link_to t('links.edit'), edit_emprestimo_path(emprestimo), remote: true  %></td>
+          <td><%= link_to t('links.destroy'), emprestimo, method: :delete, data: { confirm: t('action.message') }, remote: true  %></td>
+        </tr>
+        <tr class="edita<%= emprestimo.id %>">
+          
+          
+        </tr>
+      <% end %>
+</table>

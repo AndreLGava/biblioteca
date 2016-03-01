@@ -1,0 +1,31 @@
+<h1>Lista de relatórios</h1>
+<table class="table table-striped table-responsive">
+	<thead>
+		  <tr>
+		     <th>Relatório</th>
+
+		  </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<%= link_to t("relatorios.gerais"), gerais_path(:pdf), target: "blank" %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= link_to t("relatorios.atrasados"), atrasados_path(:pdf), target: "blank" %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= link_to t("relatorios.emprestados"), emprestados_path(:pdf), target: "blank" %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= link_to t("relatorios.devolvidos"), devolvidos_path(:pdf), target: "blank" %>
+			</td>
+		</tr>
+</tbody>
+</table>

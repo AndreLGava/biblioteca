@@ -1,0 +1,5 @@
+$('.emprestimo').show();
+$('.formulario').remove();
+$('.emprestimo<%= @emprestimo.id %>').hide();
+$('.edita<%= @emprestimo.id %>').after('<%= j render 'emprestimos/form'  %>');
+$('.edita<%= @emprestimo.id %>').show();

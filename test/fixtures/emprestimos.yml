@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  data_emprestimo: 2015-12-02
+  data_limite: 2015-12-02
+
+two:
+  data_emprestimo: 2015-12-02
+  data_limite: 2015-12-02

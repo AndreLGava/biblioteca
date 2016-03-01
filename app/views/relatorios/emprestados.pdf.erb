@@ -1,0 +1,18 @@
+
+<h1>Empréstimos Emprestados</h1>
+        <table class=" table table-responsive table-striped">
+        <tr>
+          <th><%= t('livros.titulo') %></th>
+          <th><%= t('usuarios.nome') %></th>
+          <th><%= t('emprestimos.data_emprestimo') %></th>
+          <th><%= t('emprestimos.data_limite') %></th>
+        </tr>
+      <% @emprestimos.each do |e| %>
+        <tr class="emprestimo<%= e.id %> emprestimo">
+          <td><%= e.livro.titulo %></td>
+          <td><%= e.usuario.nome %></td>
+          <td><%= e.data_emprestimo  %></td>
+          <td><%= e.data_limite %></td>
+        </tr>       
+      <% end %>
+      </table>

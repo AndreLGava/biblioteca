@@ -1,0 +1,24 @@
+<table class="tabela_livros table table-responsive table-striped">
+  <tr>
+    <th><%= t('livros.titulo') %></th>
+    <th><%= t('livros.descricao') %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @livros.each do |livro| %>
+  <tr class="livro<%= livro.id %> livro">
+    <td><%= link_to livro.titulo, edit_livro_titulo_path(id: livro.id) , remote: true, class: "livro_titulo#{livro.id}" %></td>
+    <td><%= link_to livro.descricao, edit_livro_descricao_path(id: livro.id) , remote: true, class: "livro_descricao#{livro.id}" %></td>
+    <td><%= image_tag(livro.image.url(:thumb), class: "brightness zoom1"), livro %></td>
+    <td><%= link_to t('links.show'), livro %></td>
+    <td><%= link_to t('links.edit'), edit_livro_path(livro), remote: true  %></td>
+    <td><%= link_to t('links.destroy'), livro, method: :delete, data: { confirm: t('action.message') }, remote: true  %></td>
+  </tr>
+  <tr class="edita<%= livro.id %>">
+    
+    
+  </tr>
+<% end %>
+</table>

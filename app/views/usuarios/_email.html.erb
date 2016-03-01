@@ -1,0 +1,4 @@
+<%= form_for(@usuario, remote: true) do |f| %>
+  <%# text_field_tag :search, params[:search], onkeyup: "$(this).parent('form').submit();"%>
+  <%= f.text_field :email, autofocus: true %>
+<% end %>

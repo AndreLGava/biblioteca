@@ -1,0 +1,10 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Plan 1") do |sheet|
+    sheet.add_row ["ID",  t('livros.titulo'),t('usuarios.nome'), t('emprestimos.data_emprestimo'), t('emprestimos.data_limite'), t('emprestimos.data_devolucao')]
+    @emprestimos.each do |emprestimo|
+        sheet.add_row [emprestimo.id, emprestimo.livro.titulo,emprestimo.usuario.nome,emprestimo.data_emprestimo, emprestimo.data_limite]
+    end
+end
+
+
+          
